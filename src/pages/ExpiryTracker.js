@@ -11,6 +11,22 @@ const ExpiryTracker = () => {
     { name: "Carrots", expiryDate: "2025-02-05" },
   ]);
 
+  const [newItemName, setNewItemName] = useState("");
+  const [newItemExpiry, setNewItemExpiry] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  // Function to handle adding a new item
+  const handleAddItem = () => {
+    if (newItemName && newItemExpiry) {
+      setItems([...items, { name: newItemName, expiryDate: newItemExpiry }]);
+      setShowModal(false);  // Close the modal after adding
+      setNewItemName(""); // Reset input fields
+      setNewItemExpiry(""); // Reset input fields
+    } else {
+      alert("Please fill in both fields");
+    }
+  };
+
   return (
     <div className="expiry-tracker-container">
       {/* Navigation Bar */}
@@ -39,10 +55,39 @@ const ExpiryTracker = () => {
         </ul>
 
         <p>Click below to add new items to your expiry tracker:</p>
-        <Link to="/grocery-list" className="cta-button">Add Item</Link>
+        <button onClick={() => setShowModal(true)} className="cta-button">Add Item</button>
+
+        {/* Modal for Adding Item */}
+        {showModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close-btn" onClick={() => setShowModal(false)}>×</span>
+              <h2>Add New Item</h2>
+              <label>
+                Item Name:
+                <input
+                  type="text"
+                  value={newItemName}
+                  onChange={(e) => setNewItemName(e.target.value)}
+                  placeholder="Enter item name"
+                />
+              </label>
+              <label>
+                Expiry Date:
+                <input
+                  type="date"
+                  value={newItemExpiry}
+                  onChange={(e) => setNewItemExpiry(e.target.value)}
+                />
+              </label>
+              <button onClick={handleAddItem} className="add-item-btn">Add Item</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default ExpiryTracker;
+
