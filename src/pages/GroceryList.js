@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/GroceryList.css"; // Add your CSS file for styling
 
 const GroceryList = () => {
+  const [groceryList, setGroceryList] = useState([
+    "🍞 Bread",
+    "🥛 Milk",
+    "🥕 Carrots",
+    "🍅 Tomatoes",
+    "🥬 Lettuce",
+    "🍗 Chicken"
+  ]);
+  
+  const [newItem, setNewItem] = useState("");
+
+  // Function to add a new item to the grocery list
+  const handleAddItem = () => {
+    if (newItem) {
+      setGroceryList([...groceryList, newItem]);
+      setNewItem(""); // Clear the input field
+    }
+  };
+
   return (
     <div className="grocery-list-container">
       {/* Navigation Bar */}
@@ -22,15 +41,19 @@ const GroceryList = () => {
         <h1>Grocery List</h1>
         <p>Manage and track your grocery shopping to minimize waste!</p>
         <ul className="grocery-items">
-          <li>🍞 Bread</li>
-          <li>🥛 Milk</li>
-          <li>🥕 Carrots</li>
-          <li>🍅 Tomatoes</li>
-          <li>🥬 Lettuce</li>
-          <li>🍗 Chicken</li>
+          {groceryList.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ul>
-        <p>Click the button below to add more items to your list:</p>
-        <Link to="/meal-planner" className="cta-button">Add More</Link>
+        
+        {/* Input and button to add more items directly */}
+        <input
+          type="text"
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
+          placeholder="Enter a grocery item"
+        />
+        <button onClick={handleAddItem}>Add Item</button>
       </div>
     </div>
   );
