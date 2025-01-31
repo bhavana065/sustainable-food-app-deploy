@@ -1,0 +1,51 @@
+/* LeftoverRecipes.css */
+.leftover-recipes {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #4CAF50;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 10px;
+    width: 80%;
+    margin-top: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .recipe-suggestions {
+    margin-top: 20px;
+  }
+  
+  .recipe-suggestions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recipe-suggestions li {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .recipe-suggestions strong {
+    color: #4CAF50;
+  }
+  

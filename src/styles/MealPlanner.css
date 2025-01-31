@@ -1,0 +1,53 @@
+/* MealPlanner.css */
+.meal-planner {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #4CAF50;
+  }
+  
+  .meal-day,
+  .meal-addition {
+    margin: 15px 0;
+  }
+  
+  input,
+  select {
+    padding: 10px;
+    width: 80%;
+    margin-top: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .meal-summary {
+    margin-top: 20px;
+  }
+  
+  .meal-summary ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .meal-summary li {
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+  
+  .meal-summary i {
+    font-style: italic;
+  }
+  
